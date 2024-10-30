@@ -1,4 +1,3 @@
-import React from "react";
 import { Navigate } from "react-router-dom";
 import styled from "styled-components";
 
@@ -24,10 +23,9 @@ const DivNav = styled.div`
     color: #1e90ff;
     cursor: pointer;
     &:hover {
-      transition: 0.3s ease;
-      box-shadow: 0px 0px 4px rgba(255, 255, 255, 0.5);
-      scale: 1.1;
-      color: #00bfff;
+      transition: 0.2s ease;
+      box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.4);
+      color: #3a3a3a;
     }
   }
 `;
