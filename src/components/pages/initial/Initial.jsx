@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Nav from "../../layout/nav/Nav";
 import Body from "../../layout/body/Body";
+import Footer from "../../layout/footer/Footer";
 
 const DivInitial = styled.div`
   display: flex;
@@ -15,6 +16,7 @@ const Initial = () => {
     <DivInitial>
       <Nav />
       <Body />
+      <Footer />
     </DivInitial>
   );
 };
