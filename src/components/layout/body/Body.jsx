@@ -8,6 +8,7 @@ import {
   DivTexto,
 } from "./Body.styled";
 import ImprimirTexto from "../../../hooks/imprimirTexto/ImprimirTexto";
+import AboutBody from "../aboutBody/AboutBody";
 
 const Body = () => {
   const divRef = useRef(null);
@@ -33,7 +34,9 @@ const Body = () => {
           <button onClick={scrolledPage}>Veja mais sobre nós</button>
         </DivCentralInicioBody>
       </DivInicioBody>
-      <DivFimBody ref={divRef}></DivFimBody>
+      <DivFimBody ref={divRef}>
+        <AboutBody />
+      </DivFimBody>
     </DivBody>
   );
 };

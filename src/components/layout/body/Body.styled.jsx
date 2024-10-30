@@ -62,6 +62,7 @@ const TextoAux = styled.p`
 
 const DivFimBody = styled.div`
   display: flex;
+  align-items: center;
   width: 100%;
   height: 100vh;
   background: linear-gradient(135deg, #ffffff, #f5f5f5, #e0e0e0);

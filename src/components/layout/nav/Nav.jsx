@@ -1,4 +1,4 @@
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const DivNav = styled.div`
@@ -11,7 +11,7 @@ const DivNav = styled.div`
   width: 100%;
   height: 15vh;
   img {
-    width: 65px;
+    width: 80px;
   }
   button {
     padding: 13px;
@@ -31,13 +31,11 @@ const DivNav = styled.div`
 `;
 
 const Nav = () => {
+  const navigate = useNavigate();
   return (
     <DivNav>
-      <img
-        src="/src/assets/WhatsApp_Image_2024-10-29_at_4.29.58_PM-removebg-preview (1).png"
-        alt="logo my messages"
-      />
-      <button onClick={<Navigate to={"/login"} />}>Entrar</button>
+      <img src="/src/assets/logo.png" alt="logo my messages" />
+      <button onClick={() => navigate("/login")}>Entrar</button>
     </DivNav>
   );
 };
