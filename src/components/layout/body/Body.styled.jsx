@@ -64,8 +64,9 @@ const DivFimBody = styled.div`
   box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.2);
   display: flex;
   align-items: center;
+
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   background: linear-gradient(135deg, #ffffff, #f5f5f5, #e0e0e0);
 `;
 

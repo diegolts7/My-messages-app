@@ -5,13 +5,14 @@ const DivNav = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: transparent;
+  background-color: transparent;
   padding-left: 7vh;
   padding-right: 7vh;
   width: 100%;
   height: 15vh;
   img {
     width: 80px;
+    cursor: pointer;
   }
   button {
     padding: 13px;
@@ -20,7 +21,11 @@ const DivNav = styled.div`
     width: 12vh;
     font-weight: bold;
     box-shadow: 0px 0px 2px rgba(255, 255, 255, 0.4);
-    color: #1e90ff;
+    color: ${(props) => (props.isInitial ? "#00bfff" : "white")};
+    background: ${(props) =>
+      props.isInitial
+        ? "white"
+        : "linear-gradient(135deg, #1e90ff, #00bfff, #add8e6)"};
     cursor: pointer;
     &:hover {
       transition: 0.2s ease;
@@ -30,12 +35,16 @@ const DivNav = styled.div`
   }
 `;
 
-const Nav = () => {
+const Nav = ({ isInitial, to, nameBtn }) => {
   const navigate = useNavigate();
   return (
-    <DivNav>
-      <img src="/src/assets/logo.png" alt="logo my messages" />
-      <button onClick={() => navigate("/login")}>Entrar</button>
+    <DivNav isInitial={isInitial}>
+      <img
+        src="/src/assets/logo.png"
+        alt="logo my messages"
+        onClick={() => navigate("/")}
+      />
+      <button onClick={() => navigate(to)}>{nameBtn}</button>
     </DivNav>
   );
 };

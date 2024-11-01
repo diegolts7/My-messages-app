@@ -9,8 +9,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Initial />} />
         <Route path="/login" element={<Login />} />
-        {/*<Route path="/register" element={}/>
-      <Route path="/recover-password" element={}/>  */}
+        <Route path="/register" element />
+        <Route path="/recover-password" element />
       </Routes>
     </Router>
   );

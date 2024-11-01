@@ -5,6 +5,8 @@ const DivAboutBody = styled.div`
   align-items: center;
   justify-content: space-around;
   width: 100%;
+  flex-wrap: wrap;
+  gap: 2rem;
 `;
 
 const DivInfo = styled.div`
