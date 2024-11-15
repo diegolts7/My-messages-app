@@ -67,18 +67,4 @@ const FormLogin = styled.form`
   }
 `;
 
-const DivPassword = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  position: relative;
-  svg {
-    position: absolute;
-    right: 2%;
-    top: 30%;
-    color: #3a3a3a;
-    cursor: pointer;
-  }
-`;
-
-export { FormLogin, DivFormLogin, DivLogin, DivPassword };
+export { FormLogin, DivFormLogin, DivLogin };
