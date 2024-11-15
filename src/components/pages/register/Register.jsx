@@ -36,6 +36,8 @@ const Register = () => {
 
           <input
             type="email"
+            name="email"
+            autoComplete="email"
             placeholder="Digite seu email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}

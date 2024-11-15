@@ -26,6 +26,8 @@ const InputPassword = ({ placeholder, password, setPassword }) => {
     <DivPassword>
       <input
         type={showPassword}
+        name="password"
+        autoComplete="new-password"
         placeholder={placeholder}
         value={password}
         onChange={(e) => setPassword(e.target.value)}

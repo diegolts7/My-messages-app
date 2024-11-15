@@ -8,15 +8,30 @@ const AuthContext = ({ children }) => {
     localStorage.getItem("token") ? localStorage.getItem("token") : null
   );
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [loading, setLoading] = useState(true);
   const authRoutes = new AuthRoutes();
 
-  useEffect(() => {
+  const salvarToken = (token) => {
+    setToken(token);
+    localStorage.setItem("token", token);
+  };
+
+  const signOut = () => {
+    setIsLoggedIn(false);
+    setToken(null);
+    localStorage.removeItem("token");
+  };
+
+  useEffect(async () => {
     if (token) {
-      authRoutes.checkAcess(token, setIsLoggedIn);
+      await authRoutes.checkAcess(token, setIsLoggedIn);
     }
+    setLoading(false);
   }, []);
   return (
-    <ContextAuth.Provider value={{ token, setToken, isLoggedIn }}>
+    <ContextAuth.Provider
+      value={{ token, salvarToken, isLoggedIn, loading, signOut }}
+    >
       {children}
     </ContextAuth.Provider>
   );
