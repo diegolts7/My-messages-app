@@ -23,7 +23,7 @@ const DivNav = styled.div`
     box-shadow: 0px 0px 2px rgba(255, 255, 255, 0.4);
     color: ${(props) => (props.isInitial ? "#00bfff" : "white")};
     background: ${(props) =>
-      props.isInitial
+      props.$isInitial
         ? "white"
         : "linear-gradient(135deg, #1e90ff, #00bfff, #add8e6)"};
     cursor: pointer;
@@ -38,7 +38,7 @@ const DivNav = styled.div`
 const Nav = ({ isInitial, to, nameBtn }) => {
   const navigate = useNavigate();
   return (
-    <DivNav isInitial={isInitial}>
+    <DivNav $isInitial={isInitial}>
       <img
         src="/src/assets/logo.png"
         alt="logo my messages"
