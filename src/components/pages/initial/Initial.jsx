@@ -14,7 +14,6 @@ const Initial = () => {
     <DivInitial>
       <Nav isInitial={true} to={"/login"} nameBtn={"Entrar"} />
       <Body />
-      <Footer />
     </DivInitial>
   );
 };

@@ -21,7 +21,7 @@ const DivNav = styled.div`
     width: 12vh;
     font-weight: bold;
     box-shadow: 0px 0px 2px rgba(255, 255, 255, 0.4);
-    color: ${(props) => (props.isInitial ? "#00bfff" : "white")};
+    color: ${(props) => (props.$isInitial ? "#00bfff" : "white")};
     background: ${(props) =>
       props.$isInitial
         ? "white"

@@ -1,31 +1,24 @@
-import Footer from "../components/layout/footer/Footer";
+import Home from "../components/pages/home/Home";
 import Initial from "../components/pages/initial/Initial";
 import Login from "../components/pages/login/Login";
 import Register from "../components/pages/register/Register";
+import PrivatedRoutesNotLoggedIn from "../routes/privated/PrivatedRoutesNotLoggedIn";
+import PrivateRoutesLoggedIn from "../routes/privated/PrivateRoutesLoggedIn";
 import "./App.css";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Outlet,
-} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Initial />} />
-        <Route
-          element={
-            <>
-              <Outlet />
-              <Footer />
-            </>
-          }
-        >
+        <Route element={<PrivatedRoutesNotLoggedIn />}>
+          <Route path="/" element={<Initial />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/recover-password" element />
+        </Route>
+        <Route element={<PrivateRoutesLoggedIn />}>
+          <Route path="/home" element={<Home />} />
         </Route>
       </Routes>
     </Router>
