@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import ImgInfoBody from "../../../../public/assets/imagemInfo.jpg";
 
 const DivAboutBody = styled.div`
   display: flex;
@@ -59,10 +60,7 @@ const AboutBody = () => {
         </p>
       </DivInfo>
       <DivImg>
-        <img
-          src="/src/assets/imagemInfo.jpg"
-          alt="imagem meramente ilustrativa"
-        />
+        <img src={ImgInfoBody} alt="imagem meramente ilustrativa" />
       </DivImg>
     </DivAboutBody>
   );

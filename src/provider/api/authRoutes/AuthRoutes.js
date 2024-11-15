@@ -2,7 +2,7 @@ import axios from "axios";
 
 export class AuthRoutes {
   constructor() {
-    this.baseUrl = "https://my-messages-api.vercel.app/";
+    this.baseUrl = import.meta.VITE_URL_API;
   }
   async checkAcess(token, setIsLoggedIn) {
     try {

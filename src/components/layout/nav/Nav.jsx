@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import Logo from "../../../../public/assets/logo.png";
 
 const DivNav = styled.div`
   display: flex;
@@ -39,11 +40,7 @@ const Nav = ({ isInitial, to, nameBtn }) => {
   const navigate = useNavigate();
   return (
     <DivNav $isInitial={isInitial}>
-      <img
-        src="/src/assets/logo.png"
-        alt="logo my messages"
-        onClick={() => navigate("/")}
-      />
+      <img src={Logo} alt="logo my messages" onClick={() => navigate("/")} />
       <button onClick={() => navigate(to)}>{nameBtn}</button>
     </DivNav>
   );
