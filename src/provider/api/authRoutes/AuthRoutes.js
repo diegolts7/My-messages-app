@@ -23,4 +23,13 @@ export class AuthRoutes {
     });
     return response;
   }
+  async register(name, email, password, confirmPassword) {
+    const response = await axios.post(`${this.baseUrl}auth/register`, {
+      name,
+      email,
+      password,
+      confirmPassword,
+    });
+    return response;
+  }
 }

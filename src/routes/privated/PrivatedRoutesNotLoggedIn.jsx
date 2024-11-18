@@ -5,6 +5,7 @@ import Footer from "../../components/layout/footer/Footer";
 
 const PrivatedRoutesNotLoggedIn = () => {
   const { isLoggedIn } = useContext(ContextAuth);
+
   return !isLoggedIn ? (
     <>
       <Outlet />

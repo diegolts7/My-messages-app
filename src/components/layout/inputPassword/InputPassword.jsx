@@ -7,12 +7,12 @@ const DivPassword = styled.div`
   align-items: center;
   gap: 0.5rem;
   position: relative;
+  cursor: pointer;
   svg {
     position: absolute;
     right: 2%;
     top: 30%;
     color: #3a3a3a;
-    cursor: pointer;
   }
 `;
 

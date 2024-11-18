@@ -22,11 +22,14 @@ const AuthContext = ({ children }) => {
     localStorage.removeItem("token");
   };
 
-  useEffect(async () => {
-    if (token) {
-      await authRoutes.checkAcess(token, setIsLoggedIn);
+  useEffect(() => {
+    async function checarAcesso() {
+      if (token) {
+        await authRoutes.checkAcess(token, setIsLoggedIn);
+      }
+      setLoading(false);
     }
-    setLoading(false);
+    checarAcesso();
   }, []);
   return (
     <ContextAuth.Provider
