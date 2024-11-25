@@ -1,17 +1,12 @@
 import { BsArrowRight } from "react-icons/bs";
 import InputPassword from "../../layout/inputPassword/InputPassword";
 import Nav from "../../layout/nav/Nav";
-import {
-  DivAuthLoading,
-  DivFormLogin,
-  DivLogin,
-  FormLogin,
-} from "../login/Login.styled";
+import { DivFormLogin, DivLogin, FormLogin } from "../login/Login.styled";
 import { useState } from "react";
 import { AuthRoutes } from "../../../provider/api/authRoutes/AuthRoutes";
 import AuthFlashMessage from "../../layout/authFlashMessage/AuthFlashMessage";
-import AuthLoading from "../../../../public/assets/authLoading.svg";
 import { useNavigate } from "react-router-dom";
+import AuthLoading from "../../layout/authLoading/AuthLoading";
 
 const Register = () => {
   const [name, setName] = useState("");
@@ -70,9 +65,7 @@ const Register = () => {
             setPassword={setConfirmPassword}
           />
           {authLoadingRegister ? (
-            <DivAuthLoading>
-              <img src={AuthLoading} alt="auth loading register" />
-            </DivAuthLoading>
+            <AuthLoading />
           ) : (
             <AuthFlashMessage message={message} />
           )}

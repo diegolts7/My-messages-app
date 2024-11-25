@@ -8,6 +8,7 @@ import PrivateRoutesLoggedIn from "../routes/privated/PrivateRoutesLoggedIn";
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ContextAuth } from "../context/authContext/AuthContext";
+import LoadingInicial from "../components/layout/loadingInitial/LoadingInicial";
 
 function App() {
   const { loading } = useContext(ContextAuth);
@@ -28,7 +29,7 @@ function App() {
           </Routes>
         </Router>
       ) : (
-        <p>carregando......</p>
+        <LoadingInicial />
       )}
     </>
   );

@@ -67,11 +67,4 @@ const FormLogin = styled.form`
   }
 `;
 
-const DivAuthLoading = styled.div`
-  margin: 0 auto;
-  img {
-    width: 30px;
-  }
-`;
-
-export { FormLogin, DivFormLogin, DivLogin, DivAuthLoading };
+export { FormLogin, DivFormLogin, DivLogin };

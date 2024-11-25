@@ -1,18 +1,13 @@
-import {
-  FormLogin,
-  DivFormLogin,
-  DivLogin,
-  DivAuthLoading,
-} from "./Login.styled";
+import { FormLogin, DivFormLogin, DivLogin } from "./Login.styled";
 import { BsArrowRight } from "react-icons/bs";
 import Nav from "../../layout/nav/Nav";
 import { useNavigate } from "react-router-dom";
-import AuthLoading from "../../../../public/assets/authLoading.svg";
 import { useContext, useState } from "react";
 import InputPassword from "../../layout/inputPassword/InputPassword";
 import { AuthRoutes } from "../../../provider/api/authRoutes/AuthRoutes";
 import AuthFlashMessage from "../../layout/authFlashMessage/AuthFlashMessage";
 import { ContextAuth } from "../../../context/authContext/AuthContext";
+import AuthLoading from "../../layout/authLoading/AuthLoading";
 
 const Login = () => {
   const authRoutes = new AuthRoutes();
@@ -58,9 +53,7 @@ const Login = () => {
             setPassword={setPassword}
           />
           {authLoading ? (
-            <DivAuthLoading>
-              <img src={AuthLoading} alt="loading auth" />
-            </DivAuthLoading>
+            <AuthLoading />
           ) : (
             <AuthFlashMessage message={message} />
           )}
