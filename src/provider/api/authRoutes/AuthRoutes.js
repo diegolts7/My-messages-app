@@ -6,12 +6,13 @@ export class AuthRoutes {
   }
   async checkAcess(token, setIsLoggedIn) {
     try {
-      await axios.get(`${this.url}auth/check-acess`, {
+      const response = await axios.get(`${this.baseUrl}auth/check-acess`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       });
       setIsLoggedIn(true);
+      return response.data.user.id;
     } catch (error) {
       console.error(error);
     }

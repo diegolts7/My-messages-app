@@ -13,7 +13,7 @@ function App() {
   const { loading } = useContext(ContextAuth);
   return (
     <>
-      {!loading && (
+      {!loading ? (
         <Router>
           <Routes>
             <Route element={<PrivatedRoutesNotLoggedIn />}>
@@ -27,6 +27,8 @@ function App() {
             </Route>
           </Routes>
         </Router>
+      ) : (
+        <p>carregando......</p>
       )}
     </>
   );
