@@ -22,6 +22,7 @@ const AuthContext = ({ children }) => {
   const signOut = () => {
     setIsLoggedIn(false);
     setToken(null);
+    setUser(null);
     localStorage.removeItem("token");
   };
 

@@ -51,6 +51,7 @@ const DivTexto = styled.div`
     font-size: 40px;
     letter-spacing: 2px;
     text-align: center;
+    text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3);
   }
 `;
 
