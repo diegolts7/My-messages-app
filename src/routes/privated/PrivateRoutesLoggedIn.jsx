@@ -3,6 +3,7 @@ import { ContextAuth } from "../../context/authContext/AuthContext";
 import { Navigate, Outlet } from "react-router-dom";
 import LeftSideBar from "../../components/layout/leftSideBar/LeftSideBar";
 import styled from "styled-components";
+import RigthSideBar from "../../components/layout/rigthSideBar/RigthSideBar";
 
 const DivRoutesLoggedIn = styled.div`
   display: flex;
@@ -15,6 +16,7 @@ const PrivateRoutesLoggedIn = () => {
     <DivRoutesLoggedIn>
       <LeftSideBar />
       <Outlet />
+      <RigthSideBar />
     </DivRoutesLoggedIn>
   ) : (
     <Navigate to={"/"} />

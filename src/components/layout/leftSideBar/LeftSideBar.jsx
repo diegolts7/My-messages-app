@@ -1,5 +1,4 @@
 import React, { useContext, useState } from "react";
-import styled from "styled-components";
 import { FaUserCircle } from "react-icons/fa";
 import { ContextAuth } from "../../../context/authContext/AuthContext";
 import {
@@ -14,75 +13,12 @@ import {
 import { useLocation, useNavigate } from "react-router-dom";
 import { MdMoreHoriz } from "react-icons/md";
 import BasicMenu from "../basicMenu/BasicMenu";
-
-const DivLeftSideBar = styled.div`
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  width: 30%;
-  border: 1px solid #e0e0e0;
-  padding-top: 8vh;
-  align-items: center;
-`;
-
-const DivOptionsSideBar = styled.div`
-  display: flex;
-  gap: 1rem;
-  width: fit-content;
-  cursor: pointer;
-  padding: 10px;
-  border-radius: 15px;
-  svg {
-    font-size: 30px;
-    color: #00bfff; //linear-gradient(135deg, #1e90ff, #00bfff, #add8e6);
-  }
-  p {
-    font-size: 20px;
-    color: gray;
-    font-weight: ${(props) => (props.$iconPageFill ? "bold" : "ligther")};
-  }
-  &:hover {
-    transition: 0.1s ease-in;
-    background-color: #e0e0e0;
-  }
-`;
-
-const DivProfile = styled.div`
-  display: flex;
-  gap: 1rem;
-  margin-bottom: 2vh;
-  padding: 10px;
-  align-items: center;
-  cursor: pointer;
-  border-radius: 15px;
-  svg {
-    font-size: 40px;
-    color: #dcd8d8;
-  }
-  img {
-    width: 60px;
-    height: 60px;
-    border-radius: 70px;
-  }
-  p {
-    font-size: 13px;
-    font-weight: bold;
-  }
-  &:hover {
-    transition: 0.1s ease-in;
-    background-color: #e0e0e0;
-    svg {
-      color: gray;
-    }
-  }
-`;
-
-const DivSvgMoreInformProfile = styled.div`
-  svg {
-    font-size: 15px;
-    color: gray;
-  }
-`;
+import {
+  DivLeftSideBar,
+  DivOptionsSideBar,
+  DivSvgMoreInformProfile,
+  DivProfile,
+} from "./LeftSideBar.Styles";
 
 const LeftSideBar = () => {
   const { signOut, user } = useContext(ContextAuth);
