@@ -26,16 +26,23 @@ const AuthContext = ({ children }) => {
     localStorage.removeItem("token");
   };
 
-  useEffect(() => {
-    async function checarAcesso() {
+  const checarAcesso = async () => {
+    try {
       if (token) {
-        const id = await authRoutes.checkAcess(token, setIsLoggedIn);
+        const id = await authRoutes.checkAcess(token);
         const user = await userRoutes.getUserData(id, token);
-        console.log(user);
         setUser(user);
+        setIsLoggedIn(true);
       }
+    } catch (error) {
+      console.error(error);
+      signOut();
+    } finally {
       setLoading(false);
     }
+  };
+
+  useEffect(() => {
     checarAcesso();
   }, []);
   return (

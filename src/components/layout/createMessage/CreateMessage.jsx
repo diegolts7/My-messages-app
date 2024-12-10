@@ -4,8 +4,8 @@ import styled from "styled-components";
 const DivCreateMessage = styled.div`
   display: flex;
   width: 100%;
-  border: 1px solid #e0e0e0;
-
+  border-top: 1px solid #e0e0e0;
+  border-bottom: 1px solid #e0e0e0;
   padding: 15px;
 `;
 
