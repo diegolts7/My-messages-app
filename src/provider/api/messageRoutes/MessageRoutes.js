@@ -12,4 +12,12 @@ export class MessageRoutes {
       },
     });
   }
+
+  async getAllMessages(token) {
+    return await axios.get(`${this.baseUrl}message/`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+  }
 }

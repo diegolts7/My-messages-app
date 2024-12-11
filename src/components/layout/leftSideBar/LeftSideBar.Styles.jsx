@@ -47,7 +47,7 @@ const DivProfile = styled.div`
   img {
     width: 60px;
     height: 60px;
-    border-radius: 70px;
+    border-radius: 60px;
   }
   p {
     font-size: 13px;

@@ -9,3 +9,17 @@
   height: 100%;
   font-family: "Poppins", sans-serif;
 }
+
+::-webkit-scrollbar {
+  width: 3.5px; /* Largura da barra de rolagem */
+}
+
+/* Estilizando a pista (fundo) da barra de rolagem */
+::-webkit-scrollbar-track {
+  background: transparent; /* Cor de fundo da pista */
+}
+
+/* Estilizando o polegar (alça) da barra de rolagem */
+::-webkit-scrollbar-thumb {
+  background: #e0e0e0; /* Cor do polegar */
+}

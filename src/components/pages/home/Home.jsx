@@ -9,25 +9,26 @@ const DivHome = styled.div`
   display: flex;
   flex-direction: column;
   flex: 1;
+  height: 100vh;
+  overflow-y: auto;
 `;
 
 const Home = () => {
   const messagesRoutes = new MessageRoutes();
   const { signOut, user, token } = useContext(ContextAuth);
   const [listMessages, setListMessages] = useState([]);
-  const [loadingMessagesFeed, setLoadingMessagesFeed] = useState(false);
+  const [loadingMessagesFeed, setLoadingMessagesFeed] = useState(true);
 
   const pegarMessages = async () => {
     try {
       setLoadingMessagesFeed(true);
-      const response = await messagesRoutes.getMessagesByUser(user._id, token);
+      const response = await messagesRoutes.getAllMessages(token);
       setListMessages(response.data);
       console.log(response);
     } catch (error) {
       if (error.response.status === 401 || error.response.status === 400) {
         signOut();
       }
-      console.log(error.response);
     } finally {
       setLoadingMessagesFeed(false);
     }
