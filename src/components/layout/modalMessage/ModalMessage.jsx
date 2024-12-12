@@ -10,6 +10,7 @@ import {
 } from "react-icons/go";
 import { format } from "date-fns";
 import { IconButton, Tooltip } from "@mui/material";
+import { TbCircleDashedCheck } from "react-icons/tb";
 
 const DivModalMessage = styled.div`
   display: flex;
@@ -38,9 +39,12 @@ const DivCabecalhoMessage = styled.div`
   width: 100%;
   justify-content: space-between;
   strong {
-    color: #00bfff;
-    font-size: 14px;
+    color: #007bff;
+    font-size: 13px;
     width: fit-content;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
     cursor: pointer;
     &:hover {
       text-decoration: underline;
@@ -100,6 +104,7 @@ const ModalMessage = ({ message }) => {
         <DivCabecalhoMessage>
           <strong onClick={() => navigate(`/${message.ownerId}`)}>
             {message.ownerName}
+            <TbCircleDashedCheck color="gray" />
           </strong>
           <p>{format(new Date(message.createdAt), "dd/MM/yyyy HH:mm:ss")}</p>
         </DivCabecalhoMessage>

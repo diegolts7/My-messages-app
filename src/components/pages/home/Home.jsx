@@ -14,15 +14,16 @@ const DivHome = styled.div`
 `;
 
 const Home = () => {
-  const messagesRoutes = new MessageRoutes();
-  const { signOut, user, token } = useContext(ContextAuth);
+  const { signOut, token } = useContext(ContextAuth);
+  const messagesRoutes = new MessageRoutes(token);
+
   const [listMessages, setListMessages] = useState([]);
   const [loadingMessagesFeed, setLoadingMessagesFeed] = useState(true);
 
   const pegarMessages = async () => {
     try {
       setLoadingMessagesFeed(true);
-      const response = await messagesRoutes.getAllMessages(token);
+      const response = await messagesRoutes.getAllMessages();
       setListMessages(response.data);
       console.log(response);
     } catch (error) {
@@ -40,7 +41,7 @@ const Home = () => {
 
   return (
     <DivHome>
-      <CreateMessage />
+      <CreateMessage pegarMessages={pegarMessages} />
       <ConteinerMessages list={listMessages} loading={loadingMessagesFeed} />
     </DivHome>
   );
