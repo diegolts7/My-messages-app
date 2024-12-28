@@ -14,6 +14,18 @@ const DivPassword = styled.div`
     top: 30%;
     color: #3a3a3a;
   }
+  input {
+    border: none;
+    padding: 13px;
+    background-color: inherit;
+    border: 1px solid #a6a6a6;
+    border-radius: 5px;
+    font-size: 14px;
+    width: 100%;
+    &:focus {
+      outline: 2px solid #8c8c8c;
+    }
+  }
 `;
 
 const InputPassword = ({ placeholder, password, setPassword }) => {

@@ -20,7 +20,7 @@ const Login = () => {
 
   return (
     <DivLogin>
-      <Nav isInitial={false} to={"/register"} nameBtn={"Cadastro"} />
+      <Nav isInitial={false} to={"/register?step=1"} nameBtn={"Cadastro"} />
       <DivFormLogin>
         <FormLogin>
           <strong>Fazer login</strong>

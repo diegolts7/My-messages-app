@@ -19,12 +19,14 @@ export class AuthRoutes {
     });
     return response;
   }
-  async register(name, email, password, confirmPassword) {
+  async register(name, email, handle, dateBirth, password, confirmPassword) {
     const response = await axios.post(`${this.baseUrl}auth/register`, {
       name,
       email,
       password,
       confirmPassword,
+      handle,
+      dateBirth,
     });
     return response;
   }
