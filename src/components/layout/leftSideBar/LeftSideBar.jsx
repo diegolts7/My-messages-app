@@ -1,6 +1,4 @@
-import React, { useContext, useState } from "react";
 import { FaUserCircle } from "react-icons/fa";
-import { ContextAuth } from "../../../context/authContext/AuthContext";
 import {
   GoBookmark,
   GoBookmarkFill,
@@ -10,7 +8,6 @@ import {
   GoPersonFill,
   GoSearch,
 } from "react-icons/go";
-import { useLocation, useNavigate } from "react-router-dom";
 import { MdMoreHoriz } from "react-icons/md";
 import BasicMenu from "../basicMenu/BasicMenu";
 import {
@@ -18,32 +15,22 @@ import {
   DivOptionsSideBar,
   DivSvgMoreInformProfile,
   DivProfile,
-} from "./LeftSideBar.Styles";
+} from "./styles-left-sideBar";
+import { useLeftSideBar } from "./use-left-sidebar";
 
 const LeftSideBar = () => {
-  const { signOut, user } = useContext(ContextAuth);
-  const [userImg, setUserImg] = useState(
-    user.profileImg.srcImg ? user.profileImg.srcImg : null
-  );
-  const navigate = useNavigate();
-  const location = useLocation();
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const open = Boolean(anchorEl);
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-
-  const shortName = (name) => {
-    const names = name.split(" ");
-    if (names.length < 2) {
-      return name;
-    }
-
-    return `${names[0]} ${names[1]}`;
-  };
+  const {
+    signOut,
+    userImg,
+    navigate,
+    location,
+    open,
+    handleClick,
+    handleClose,
+    shortName,
+    anchorEl,
+    user,
+  } = useLeftSideBar();
 
   return (
     <>
