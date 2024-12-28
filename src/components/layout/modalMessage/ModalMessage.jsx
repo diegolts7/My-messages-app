@@ -30,7 +30,7 @@ const ModalMessage = ({ message }) => {
   const [userImg, setUserImg] = useState(false);
   const navigate = useNavigate();
   const [isFavorite, setIsFavorite] = useState(false);
-  const [isLiked, setIsLiked] = useState(false);
+  const [isLiked, setIsLiked] = useState(message.isLiked);
 
   const handleSave = () => {
     setIsFavorite((before) => !before);
@@ -45,11 +45,14 @@ const ModalMessage = ({ message }) => {
       <DivImgModalMessage>
         {userImg ? <img src={userImg} alt="profile image" /> : <FaUserCircle />}
       </DivImgModalMessage>
+
       <DivDescricraoModalMessage>
         <DivCabecalhoMessage>
-          <strong onClick={() => navigate(`/${message.ownerId}`)}>
-            {message.ownerName}
-            <TbCircleDashedCheck color="gray" />
+          <strong onClick={() => navigate(`/${message.owner._id}`)}>
+            {message.owner.name}
+            {message.owner.role === "admin" && (
+              <TbCircleDashedCheck color="gray" />
+            )}
           </strong>
 
           <Tooltip title="Ver mais">
@@ -58,9 +61,11 @@ const ModalMessage = ({ message }) => {
             </IconButton>
           </Tooltip>
         </DivCabecalhoMessage>
+
         <DivContentMessage>
           <p>{message.content}</p>
         </DivContentMessage>
+
         <DivDateAndIcons>
           <ParagrafoDate>
             {formatDistanceToNow(new Date(message.createdAt), {
@@ -68,6 +73,7 @@ const ModalMessage = ({ message }) => {
               locale: ptBR,
             })}
           </ParagrafoDate>
+
           <DivIconsInfoMessage>
             {isLiked ? (
               <Tooltip title="Descurtir" arrow>
@@ -82,6 +88,7 @@ const ModalMessage = ({ message }) => {
                 </IconButton>
               </Tooltip>
             )}
+
             {isFavorite ? (
               <Tooltip title="Desfavoritar" arrow>
                 <IconButton onClick={handleSave}>
