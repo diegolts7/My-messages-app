@@ -1,7 +1,5 @@
-import React, { useContext, useState } from "react";
-import styled from "styled-components";
+import React from "react";
 import { FaUserCircle } from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
 import {
   GoBookmark,
   GoBookmarkFill,
@@ -22,23 +20,12 @@ import {
   DivIconsInfoMessage,
   DivImgModalMessage,
   DivModalMessage,
-} from "./StylesModalMessage";
-import { ContextAuth } from "../../../context/authContext/AuthContext";
+} from "./styles-modal-message";
+import { useModalMessage } from "./use-modal-message";
 
 const ModalMessage = ({ message }) => {
-  const { user } = useContext(ContextAuth);
-  const [userImg, setUserImg] = useState(false);
-  const navigate = useNavigate();
-  const [isFavorite, setIsFavorite] = useState(false);
-  const [isLiked, setIsLiked] = useState(message.isLiked);
-
-  const handleSave = () => {
-    setIsFavorite((before) => !before);
-  };
-
-  const handleLike = () => {
-    setIsLiked((before) => !before);
-  };
+  const { userImg, navigate, isFavorite, isLiked, handleSave, handleLike } =
+    useModalMessage(message);
 
   return (
     <DivModalMessage>

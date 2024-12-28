@@ -1,35 +1,25 @@
 import { BsArrowRight } from "react-icons/bs";
 import InputPassword from "../../layout/inputPassword/InputPassword";
 import Nav from "../../layout/nav/Nav";
-import { DivFormLogin, DivLogin, FormLogin } from "../login/Login.styled";
-import { useState } from "react";
-import { AuthRoutes } from "../../../provider/api/authRoutes/AuthRoutes";
+import { DivFormLogin, DivLogin, FormLogin } from "../login/styles-login";
 import AuthFlashMessage from "../../layout/authFlashMessage/AuthFlashMessage";
-import { useNavigate } from "react-router-dom";
 import AuthLoading from "../../layout/authLoading/AuthLoading";
+import { useRegister } from "./use-register";
 
 const Register = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [message, setMessage] = useState("");
-  const [authLoadingRegister, setAuthLoadingRegister] = useState(false);
-  const authRoutes = new AuthRoutes();
-  const navigate = useNavigate();
-
-  const fazerCadastro = async (e) => {
-    e.preventDefault();
-    try {
-      setAuthLoadingRegister(true);
-      await authRoutes.register(name, email, password, confirmPassword);
-      navigate("/login", { replace: true });
-    } catch (error) {
-      console.error(error);
-      setMessage(error.response.data.msg);
-    }
-    setAuthLoadingRegister(false);
-  };
+  const {
+    name,
+    setName,
+    email,
+    setEmail,
+    password,
+    setPassword,
+    confirmPassword,
+    setConfirmPassword,
+    message,
+    authLoadingRegister,
+    fazerCadastro,
+  } = useRegister();
 
   return (
     <DivLogin>

@@ -1,36 +1,22 @@
-import { FormLogin, DivFormLogin, DivLogin } from "./Login.styled";
+import { FormLogin, DivFormLogin, DivLogin } from "./styles-login";
 import { BsArrowRight } from "react-icons/bs";
 import Nav from "../../layout/nav/Nav";
-import { useNavigate } from "react-router-dom";
-import { useContext, useState } from "react";
 import InputPassword from "../../layout/inputPassword/InputPassword";
-import { AuthRoutes } from "../../../provider/api/authRoutes/AuthRoutes";
 import AuthFlashMessage from "../../layout/authFlashMessage/AuthFlashMessage";
-import { ContextAuth } from "../../../context/authContext/AuthContext";
 import AuthLoading from "../../layout/authLoading/AuthLoading";
+import { useLogin } from "./use-login";
 
 const Login = () => {
-  const authRoutes = new AuthRoutes();
-  const navigate = useNavigate();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [message, setMessage] = useState("");
-  const [authLoading, setAuthLoading] = useState(false);
-  const { salvarToken } = useContext(ContextAuth);
-
-  const fazerLogin = async (e) => {
-    e.preventDefault();
-    try {
-      setAuthLoading(true);
-      const response = await authRoutes.login(email, password);
-      salvarToken(response.data.token);
-      location.reload();
-    } catch (error) {
-      setMessage(error.response.data.msg);
-      console.error(error);
-    }
-    setAuthLoading(false);
-  };
+  const {
+    navigate,
+    email,
+    setEmail,
+    password,
+    setPassword,
+    message,
+    authLoading,
+    fazerLogin,
+  } = useLogin();
 
   return (
     <DivLogin>
