@@ -17,7 +17,7 @@ const DivFormLogin = styled.div`
 const FormLogin = styled.form`
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1.3rem;
   width: 50vh;
   strong {
     font-size: 35px;
@@ -25,46 +25,16 @@ const FormLogin = styled.form`
     color: #3a3a3a;
     text-align: center;
   }
-  button {
-    background: linear-gradient(135deg, #1e90ff, #00bfff, #add8e6);
-    border: none;
-    padding: 13px;
-    border-radius: 5px;
-    font-weight: bold;
-    color: #ffffff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    gap: 0.5rem;
-    &:hover {
-      opacity: 0.7;
-    }
-    svg {
-      font-size: 15px;
-    }
-  }
-  input {
-    border: none;
-    padding: 13px;
-    background-color: inherit;
-    border: 1px solid #a6a6a6;
-    border-radius: 5px;
-    font-size: 14px;
-    width: 100%;
-    &:focus {
-      outline: 2px solid #8c8c8c;
-    }
-  }
-  p {
-    font-size: small;
-    text-align: center;
-    cursor: pointer;
-    color: darkblue;
-    &:hover {
-      opacity: 0.7;
-    }
+`;
+
+const ForgotPassword = styled.p`
+  font-size: small;
+  text-align: center;
+  cursor: pointer;
+  color: darkblue;
+  &:hover {
+    opacity: 0.7;
   }
 `;
 
-export { FormLogin, DivFormLogin, DivLogin };
+export { FormLogin, DivFormLogin, DivLogin, ForgotPassword };

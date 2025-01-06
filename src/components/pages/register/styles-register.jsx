@@ -29,7 +29,7 @@ const DivCentralRegister = styled.div`
 const FormRegister = styled.form`
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1.3rem;
   width: 100%;
   p {
     font-size: small;

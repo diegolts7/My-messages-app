@@ -1,10 +1,16 @@
-import { FormLogin, DivFormLogin, DivLogin } from "./styles-login";
+import {
+  FormLogin,
+  DivFormLogin,
+  DivLogin,
+  ForgotPassword,
+} from "./styles-login";
 import { BsArrowRight } from "react-icons/bs";
 import Nav from "../../layout/nav/Nav";
 import InputPassword from "../../layout/inputPassword/InputPassword";
 import AuthFlashMessage from "../../layout/authFlashMessage/AuthFlashMessage";
 import AuthLoading from "../../layout/authLoading/AuthLoading";
 import { useLogin } from "./use-login";
+import { ButtonRegister, InputRegister } from "../register/styles-register";
 
 const Login = () => {
   const {
@@ -24,7 +30,7 @@ const Login = () => {
       <DivFormLogin>
         <FormLogin>
           <strong>Fazer login</strong>
-          <input
+          <InputRegister
             type="email"
             name="email"
             autoComplete="email"
@@ -38,17 +44,20 @@ const Login = () => {
             password={password}
             setPassword={setPassword}
           />
+
           {authLoading ? (
             <AuthLoading />
           ) : (
             <AuthFlashMessage message={message} />
           )}
-          <button type="submit" onClick={fazerLogin}>
+
+          <ButtonRegister type="submit" onClick={fazerLogin}>
             Entrar <BsArrowRight />
-          </button>
-          <p onClick={() => navigate("/recover-password")}>
+          </ButtonRegister>
+
+          <ForgotPassword onClick={() => navigate("/recover-password")}>
             esqueceu a senha ?
-          </p>
+          </ForgotPassword>
         </FormLogin>
       </DivFormLogin>
     </DivLogin>
