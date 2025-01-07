@@ -11,6 +11,8 @@ export const useLogin = () => {
   const [message, setMessage] = useState("");
   const [authLoading, setAuthLoading] = useState(false);
   const { salvarToken } = useContext(ContextAuth);
+  const [openModalRecoverPassword, setOpenModalRecoverPassword] =
+    useState(false);
 
   const fazerLogin = async (e) => {
     e.preventDefault();
@@ -26,6 +28,14 @@ export const useLogin = () => {
     setAuthLoading(false);
   };
 
+  const handleCloseModalRecoverPassword = () => {
+    setOpenModalRecoverPassword(false);
+  };
+
+  const handleClickOpenModalRecoverPassword = () => {
+    setOpenModalRecoverPassword(true);
+  };
+
   return {
     navigate,
     email,
@@ -35,5 +45,8 @@ export const useLogin = () => {
     message,
     authLoading,
     fazerLogin,
+    openModalRecoverPassword,
+    handleClickOpenModalRecoverPassword,
+    handleCloseModalRecoverPassword,
   };
 };

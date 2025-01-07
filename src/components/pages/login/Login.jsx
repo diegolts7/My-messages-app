@@ -11,6 +11,7 @@ import AuthFlashMessage from "../../layout/authFlashMessage/AuthFlashMessage";
 import AuthLoading from "../../layout/authLoading/AuthLoading";
 import { useLogin } from "./use-login";
 import { ButtonRegister, InputRegister } from "../register/styles-register";
+import ModalRecoverPassword from "../../layout/modalRecoverPassword/ModalRecoverPassword";
 
 const Login = () => {
   const {
@@ -22,45 +23,54 @@ const Login = () => {
     message,
     authLoading,
     fazerLogin,
+    openModalRecoverPassword,
+    handleClickOpenModalRecoverPassword,
+    handleCloseModalRecoverPassword,
   } = useLogin();
 
   return (
-    <DivLogin>
-      <Nav isInitial={false} to={"/register?step=1"} nameBtn={"Cadastro"} />
-      <DivFormLogin>
-        <FormLogin>
-          <strong>Fazer login</strong>
-          <InputRegister
-            type="email"
-            name="email"
-            autoComplete="email"
-            placeholder="Digite seu email."
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
+    <>
+      <DivLogin>
+        <Nav isInitial={false} to={"/register?step=1"} nameBtn={"Cadastro"} />
+        <DivFormLogin>
+          <FormLogin>
+            <strong>Fazer login</strong>
+            <InputRegister
+              type="email"
+              name="email"
+              autoComplete="email"
+              placeholder="Email."
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
 
-          <InputPassword
-            placeholder={"Digite sua senha"}
-            password={password}
-            setPassword={setPassword}
-          />
+            <InputPassword
+              placeholder={"Senha"}
+              password={password}
+              setPassword={setPassword}
+            />
 
-          {authLoading ? (
-            <AuthLoading />
-          ) : (
-            <AuthFlashMessage message={message} />
-          )}
+            {authLoading ? (
+              <AuthLoading />
+            ) : (
+              <AuthFlashMessage message={message} />
+            )}
 
-          <ButtonRegister type="submit" onClick={fazerLogin}>
-            Entrar <BsArrowRight />
-          </ButtonRegister>
+            <ButtonRegister type="submit" onClick={fazerLogin}>
+              Entrar <BsArrowRight />
+            </ButtonRegister>
 
-          <ForgotPassword onClick={() => navigate("/recover-password")}>
-            esqueceu a senha ?
-          </ForgotPassword>
-        </FormLogin>
-      </DivFormLogin>
-    </DivLogin>
+            <ForgotPassword onClick={handleClickOpenModalRecoverPassword}>
+              esqueceu a senha ?
+            </ForgotPassword>
+          </FormLogin>
+        </DivFormLogin>
+      </DivLogin>
+      <ModalRecoverPassword
+        open={openModalRecoverPassword}
+        handleClose={handleCloseModalRecoverPassword}
+      />
+    </>
   );
 };
 

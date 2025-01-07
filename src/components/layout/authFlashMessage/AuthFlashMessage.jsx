@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import styled from "styled-components";
 
 const DivFlashMessage = styled.div`
@@ -11,22 +10,9 @@ const DivFlashMessage = styled.div`
 `;
 
 const AuthFlashMessage = ({ message }) => {
-  const [isVisible, setIsVisible] = useState();
-
-  useEffect(() => {
-    if (message !== "") {
-      setIsVisible(true);
-      const timer = setTimeout(() => {
-        setIsVisible(false);
-      }, 3000);
-
-      return () => clearTimeout(timer);
-    }
-  }, [message]);
-
   return (
     <>
-      {isVisible && (
+      {message !== "" && (
         <DivFlashMessage>
           <p>{message}</p>
         </DivFlashMessage>

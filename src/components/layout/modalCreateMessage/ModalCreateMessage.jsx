@@ -42,7 +42,7 @@ export default function ModalCreateMessage({
       >
         <DivSvgClose>
           <IconButton onClick={handleClose}>
-            <IoMdClose color="black" />
+            <IoMdClose />
           </IconButton>
         </DivSvgClose>
         <CreateMessage pegarMessages={pegarMessages} isModal={true} />
