@@ -15,7 +15,6 @@ import ModalRecoverPassword from "../../layout/modalRecoverPassword/ModalRecover
 
 const Login = () => {
   const {
-    navigate,
     email,
     setEmail,
     password,

@@ -1,13 +1,11 @@
-import { useContext, useEffect, useState } from "react";
-import { ContextAuth } from "../../../context/authContext/AuthContext";
+import { useEffect, useState } from "react";
 import { RecoverPasswordRoutes } from "../../../provider/api/recoverPasswordRoutes/RecoverPasswordRoutes";
 
 export const useModalRecoverPassword = () => {
   const [emailRecover, setEmailRecover] = useState("");
   const [messageRecover, setMessageRecover] = useState("");
   const [loadingRecover, setLoadingRecover] = useState(false);
-  const { token } = useContext(ContextAuth);
-  const recoverPasswordRoutes = new RecoverPasswordRoutes(token);
+  const recoverPasswordRoutes = new RecoverPasswordRoutes();
   const [isSendEmail, setIsSendEmail] = useState(false);
   const [seconds, setSeconds] = useState();
 

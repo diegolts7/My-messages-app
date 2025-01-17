@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { AuthRoutes } from "../../../provider/api/authRoutes/AuthRoutes";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { ContextAuth } from "../../../context/authContext/AuthContext";
 
 export const useLogin = () => {
@@ -10,9 +10,17 @@ export const useLogin = () => {
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
   const [authLoading, setAuthLoading] = useState(false);
+  const location = useLocation();
+  const query = new URLSearchParams(location.search);
+  const recover = query.get("recover");
+  const recoverToBoolean = recover
+    ? recover === "true"
+      ? true
+      : false
+    : false;
   const { salvarToken } = useContext(ContextAuth);
   const [openModalRecoverPassword, setOpenModalRecoverPassword] =
-    useState(false);
+    useState(recoverToBoolean);
 
   const fazerLogin = async (e) => {
     e.preventDefault();
@@ -20,19 +28,24 @@ export const useLogin = () => {
       setAuthLoading(true);
       const response = await authRoutes.login(email, password);
       salvarToken(response.data.token);
-      location.reload();
+      console.log(response);
+      window.location.reload();
+      console.log("oiii");
     } catch (error) {
       setMessage(error.response.data.msg);
       console.error(error);
+    } finally {
+      setAuthLoading(false);
     }
-    setAuthLoading(false);
   };
 
   const handleCloseModalRecoverPassword = () => {
+    navigate("/login");
     setOpenModalRecoverPassword(false);
   };
 
   const handleClickOpenModalRecoverPassword = () => {
+    navigate("?recover=true");
     setOpenModalRecoverPassword(true);
   };
 
