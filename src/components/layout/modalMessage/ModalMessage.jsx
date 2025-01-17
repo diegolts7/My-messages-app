@@ -1,16 +1,17 @@
 import React from "react";
 import { FaUserCircle } from "react-icons/fa";
-import {
-  GoBookmark,
-  GoBookmarkFill,
-  GoHeart,
-  GoHeartFill,
-} from "react-icons/go";
 import { formatDistanceToNow } from "date-fns";
-import { IconButton, Tooltip } from "@mui/material";
-import { TbCircleDashedCheck } from "react-icons/tb";
+import { Checkbox, IconButton, Tooltip } from "@mui/material";
+import { TbCircleCheckFilled } from "react-icons/tb";
 import { ptBR } from "date-fns/locale";
-import { MoreHoriz } from "@mui/icons-material";
+import {
+  BarChart,
+  Bookmark,
+  BookmarkBorder,
+  Favorite,
+  FavoriteBorder,
+  MoreHoriz,
+} from "@mui/icons-material";
 import {
   ParagrafoDate,
   DivCabecalhoMessage,
@@ -20,6 +21,7 @@ import {
   DivIconsInfoMessage,
   DivImgModalMessage,
   DivModalMessage,
+  DivUsernameAndHandleCabecalho,
 } from "./styles-modal-message";
 import { useModalMessage } from "./use-modal-message";
 
@@ -35,12 +37,17 @@ const ModalMessage = ({ message }) => {
 
       <DivDescricraoModalMessage>
         <DivCabecalhoMessage>
-          <strong onClick={() => navigate(`/${message.owner._id}`)}>
-            {message.owner.name}
-            {message.owner.role === "admin" && (
-              <TbCircleDashedCheck color="gray" />
-            )}
-          </strong>
+          <DivUsernameAndHandleCabecalho
+            onClick={() => navigate(`/${message.owner._id}`)}
+          >
+            <strong>
+              {message.owner.name}
+              {message.owner.role === "admin" && (
+                <TbCircleCheckFilled color="#007bff" />
+              )}
+            </strong>
+            <p>{`@${message.owner.handle}`}</p>
+          </DivUsernameAndHandleCabecalho>
 
           <Tooltip title="Ver mais">
             <IconButton>
@@ -62,33 +69,29 @@ const ModalMessage = ({ message }) => {
           </ParagrafoDate>
 
           <DivIconsInfoMessage>
-            {isLiked ? (
-              <Tooltip title="Descurtir" arrow>
-                <IconButton onClick={handleLike}>
-                  <GoHeartFill color="#FF3040" />
-                </IconButton>
-              </Tooltip>
-            ) : (
-              <Tooltip title="Curtir" arrow>
-                <IconButton onClick={handleLike}>
-                  <GoHeart />
-                </IconButton>
-              </Tooltip>
-            )}
+            <Tooltip title={isLiked ? "Descurtir" : "Curtir"}>
+              <Checkbox
+                checked={isLiked}
+                onChange={handleLike}
+                icon={<FavoriteBorder />}
+                checkedIcon={<Favorite color="#FF3040" />}
+              />
+            </Tooltip>
 
-            {isFavorite ? (
-              <Tooltip title="Desfavoritar" arrow>
-                <IconButton onClick={handleSave}>
-                  <GoBookmarkFill />
-                </IconButton>
-              </Tooltip>
-            ) : (
-              <Tooltip title="Favoritar" arrow>
-                <IconButton onClick={handleSave}>
-                  <GoBookmark />
-                </IconButton>
-              </Tooltip>
-            )}
+            <Tooltip title={isFavorite ? "Desfazer" : "Salvar"}>
+              <Checkbox
+                checked={isFavorite}
+                onChange={handleSave}
+                icon={<BookmarkBorder />}
+                checkedIcon={<Bookmark />}
+              />
+            </Tooltip>
+
+            <Tooltip title={"Sobre"}>
+              <IconButton>
+                <BarChart />
+              </IconButton>
+            </Tooltip>
           </DivIconsInfoMessage>
         </DivDateAndIcons>
       </DivDescricraoModalMessage>

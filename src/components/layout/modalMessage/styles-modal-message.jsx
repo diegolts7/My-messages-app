@@ -11,13 +11,13 @@ const DivModalMessage = styled.div`
 const DivImgModalMessage = styled.div`
   display: flex;
   img {
-    width: 50px;
-    height: 50px;
-    border-radius: 50px;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
     justify-content: start;
   }
   svg {
-    font-size: 35px;
+    font-size: 40px;
     color: #e0e0e0;
   }
 `;
@@ -26,9 +26,15 @@ const DivCabecalhoMessage = styled.div`
   display: flex;
   width: 100%;
   justify-content: space-between;
+`;
+
+const DivUsernameAndHandleCabecalho = styled.div`
+  display: flex;
+  flex-direction: column;
+
   strong {
-    color: #007bff;
-    font-size: 13px;
+    color: black;
+    font-size: 14px;
     width: fit-content;
     display: flex;
     align-items: center;
@@ -37,6 +43,14 @@ const DivCabecalhoMessage = styled.div`
     &:hover {
       text-decoration: underline;
     }
+    svg {
+      font-size: 15px;
+    }
+  }
+  p {
+    font-size: 12px;
+    color: gray;
+    cursor: pointer;
   }
 `;
 
@@ -57,7 +71,7 @@ const DivIconsInfoMessage = styled.div`
   display: flex;
   gap: 0.5rem;
   svg {
-    font-size: 23px;
+    font-size: 20px;
     color: #00bfff;
     cursor: pointer;
   }
@@ -84,4 +98,5 @@ export {
   DivIconsInfoMessage,
   DivImgModalMessage,
   DivModalMessage,
+  DivUsernameAndHandleCabecalho,
 };

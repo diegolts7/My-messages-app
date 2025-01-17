@@ -15,8 +15,10 @@ import {
   DivOptionsSideBar,
   DivSvgMoreInformProfile,
   DivProfile,
+  DivNameProfile,
 } from "./styles-left-sideBar";
 import { useLeftSideBar } from "./use-left-sidebar";
+import { TbCircleCheckFilled } from "react-icons/tb";
 
 const LeftSideBar = () => {
   const {
@@ -48,7 +50,17 @@ const LeftSideBar = () => {
             ) : (
               <FaUserCircle />
             )}
-            <p>{shortName(user.name)}</p>
+
+            <DivNameProfile>
+              <strong>
+                {shortName(user.name)}
+                {user.role === "admin" && (
+                  <TbCircleCheckFilled color="#007bff" size={15} />
+                )}
+              </strong>
+              <p>{"@" + user.handle}</p>
+            </DivNameProfile>
+
             <DivSvgMoreInformProfile>
               <MdMoreHoriz />
             </DivSvgMoreInformProfile>

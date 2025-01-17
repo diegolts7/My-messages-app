@@ -47,12 +47,9 @@ const DivProfile = styled.div`
   img {
     width: 60px;
     height: 60px;
-    border-radius: 60px;
+    border-radius: 50%;
   }
-  p {
-    font-size: 13px;
-    font-weight: bold;
-  }
+
   &:hover {
     transition: 0.1s ease-in;
     background-color: #e0e0e0;
@@ -62,9 +59,28 @@ const DivProfile = styled.div`
   }
 `;
 
+const DivNameProfile = styled.div`
+  display: flex;
+  flex-direction: column;
+  strong {
+    font-size: 13px;
+    color: black;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    svg {
+      font-size: 15px;
+    }
+  }
+  p {
+    font-size: 13px;
+    color: gray;
+  }
+`;
+
 const DivSvgMoreInformProfile = styled.div`
   svg {
-    font-size: 15px;
+    font-size: 20px;
     color: gray;
   }
 `;
@@ -74,4 +90,5 @@ export {
   DivOptionsSideBar,
   DivSvgMoreInformProfile,
   DivProfile,
+  DivNameProfile,
 };
