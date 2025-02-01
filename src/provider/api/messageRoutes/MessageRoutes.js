@@ -35,4 +35,52 @@ export class MessageRoutes {
       }
     );
   }
+
+  async likeMessage(messageId) {
+    return await axios.patch(
+      `${this.baseUrl}like-message/like/${messageId}`,
+      null,
+      {
+        headers: {
+          Authorization: `Bearer ${this.token}`,
+        },
+      }
+    );
+  }
+
+  async deslikeMessage(messageId) {
+    return await axios.patch(
+      `${this.baseUrl}like-message/deslike/${messageId}`,
+      null,
+      {
+        headers: {
+          Authorization: `Bearer ${this.token}`,
+        },
+      }
+    );
+  }
+
+  async saveMessage(messageId) {
+    return await axios.patch(
+      `${this.baseUrl}save-message/save/${messageId}`,
+      null,
+      {
+        headers: {
+          Authorization: `Bearer ${this.token}`,
+        },
+      }
+    );
+  }
+
+  async discardMessage(messageId) {
+    return await axios.patch(
+      `${this.baseUrl}save-message/discard/${messageId}`,
+      null,
+      {
+        headers: {
+          Authorization: `Bearer ${this.token}`,
+        },
+      }
+    );
+  }
 }
